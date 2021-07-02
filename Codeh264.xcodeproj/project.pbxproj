@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDD7298D268DE66000D8BB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD7298C268DE66000D8BB8A /* AppDelegate.swift */; };
+		DDD7298F268DE66000D8BB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD7298E268DE66000D8BB8A /* SceneDelegate.swift */; };
+		DDD72991268DE66000D8BB8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD72990268DE66000D8BB8A /* ViewController.swift */; };
+		DDD72994268DE66000D8BB8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD72992268DE66000D8BB8A /* Main.storyboard */; };
+		DDD72996268DE66200D8BB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDD72995268DE66200D8BB8A /* Assets.xcassets */; };
+		DDD72999268DE66200D8BB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD72997268DE66200D8BB8A /* LaunchScreen.storyboard */; };
+		DDD729A4268DE66300D8BB8A /* Codeh264Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729A3268DE66300D8BB8A /* Codeh264Tests.swift */; };
+		DDD729AF268DE66300D8BB8A /* Codeh264UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729AE268DE66300D8BB8A /* Codeh264UITests.swift */; };
+		DDD729C1268DE7D800D8BB8A /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C0268DE7D800D8BB8A /* AAPLEAGLLayer.m */; };
+		DDD729C4268DE81100D8BB8A /* CCAVConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C3268DE81100D8BB8A /* CCAVConfig.m */; };
+		DDD729C7268DE82100D8BB8A /* CCVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C6268DE82100D8BB8A /* CCVideoEncoder.m */; };
+		DDD729CA268DE82D00D8BB8A /* CCVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C9268DE82D00D8BB8A /* CCVideoDecoder.m */; };
+		DDD729CE268DF0D100D8BB8A /* DQVideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */; };
+		DDD729D0268EB84700D8BB8A /* DQVideoDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */; };
+		DDD729D4268F21B600D8BB8A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729D3268F21B600D8BB8A /* VideoViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDD729A0268DE66300D8BB8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD72981268DE66000D8BB8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDD72988268DE66000D8BB8A;
+			remoteInfo = Codeh264;
+		};
+		DDD729AB268DE66300D8BB8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDD72981268DE66000D8BB8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDD72988268DE66000D8BB8A;
+			remoteInfo = Codeh264;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DDD72989268DE66000D8BB8A /* Codeh264.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Codeh264.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD7298C268DE66000D8BB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDD7298E268DE66000D8BB8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DDD72990268DE66000D8BB8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDD72993268DE66000D8BB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDD72995268DE66200D8BB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDD72998268DE66200D8BB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDD7299A268DE66200D8BB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD7299F268DE66300D8BB8A /* Codeh264Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Codeh264Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD729A3268DE66300D8BB8A /* Codeh264Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codeh264Tests.swift; sourceTree = "<group>"; };
+		DDD729A5268DE66300D8BB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD729AA268DE66300D8BB8A /* Codeh264UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Codeh264UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD729AE268DE66300D8BB8A /* Codeh264UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codeh264UITests.swift; sourceTree = "<group>"; };
+		DDD729B0268DE66300D8BB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD729BE268DE7D000D8BB8A /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
+		DDD729BF268DE7D700D8BB8A /* Codeh264-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Codeh264-Bridging-Header.h"; sourceTree = "<group>"; };
+		DDD729C0268DE7D800D8BB8A /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
+		DDD729C2268DE81000D8BB8A /* CCAVConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAVConfig.h; sourceTree = "<group>"; };
+		DDD729C3268DE81100D8BB8A /* CCAVConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAVConfig.m; sourceTree = "<group>"; };
+		DDD729C5268DE81A00D8BB8A /* CCVideoEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCVideoEncoder.h; sourceTree = "<group>"; };
+		DDD729C6268DE82100D8BB8A /* CCVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoEncoder.m; sourceTree = "<group>"; };
+		DDD729C8268DE82600D8BB8A /* CCVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCVideoDecoder.h; sourceTree = "<group>"; };
+		DDD729C9268DE82D00D8BB8A /* CCVideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoDecoder.m; sourceTree = "<group>"; };
+		DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQVideoEncoder.swift; sourceTree = "<group>"; };
+		DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQVideoDecode.swift; sourceTree = "<group>"; };
+		DDD729D3268F21B600D8BB8A /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDD72986268DE66000D8BB8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD7299C268DE66300D8BB8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD729A7268DE66300D8BB8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDD72980268DE66000D8BB8A = {
+			isa = PBXGroup;
+			children = (
+				DDD7298B268DE66000D8BB8A /* Codeh264 */,
+				DDD729A2268DE66300D8BB8A /* Codeh264Tests */,
+				DDD729AD268DE66300D8BB8A /* Codeh264UITests */,
+				DDD7298A268DE66000D8BB8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDD7298A268DE66000D8BB8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDD72989268DE66000D8BB8A /* Codeh264.app */,
+				DDD7299F268DE66300D8BB8A /* Codeh264Tests.xctest */,
+				DDD729AA268DE66300D8BB8A /* Codeh264UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDD7298B268DE66000D8BB8A /* Codeh264 */ = {
+			isa = PBXGroup;
+			children = (
+				DDD729BD268DE79B00D8BB8A /* Encode */,
+				DDD729BC268DE78200D8BB8A /* Player */,
+				DDD7298C268DE66000D8BB8A /* AppDelegate.swift */,
+				DDD7298E268DE66000D8BB8A /* SceneDelegate.swift */,
+				DDD72990268DE66000D8BB8A /* ViewController.swift */,
+				DDD729D3268F21B600D8BB8A /* VideoViewController.swift */,
+				DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */,
+				DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */,
+				DDD72992268DE66000D8BB8A /* Main.storyboard */,
+				DDD72995268DE66200D8BB8A /* Assets.xcassets */,
+				DDD72997268DE66200D8BB8A /* LaunchScreen.storyboard */,
+				DDD7299A268DE66200D8BB8A /* Info.plist */,
+			);
+			path = Codeh264;
+			sourceTree = "<group>";
+		};
+		DDD729A2268DE66300D8BB8A /* Codeh264Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DDD729A3268DE66300D8BB8A /* Codeh264Tests.swift */,
+				DDD729A5268DE66300D8BB8A /* Info.plist */,
+			);
+			path = Codeh264Tests;
+			sourceTree = "<group>";
+		};
+		DDD729AD268DE66300D8BB8A /* Codeh264UITests */ = {
+			isa = PBXGroup;
+			children = (
+				DDD729AE268DE66300D8BB8A /* Codeh264UITests.swift */,
+				DDD729B0268DE66300D8BB8A /* Info.plist */,
+			);
+			path = Codeh264UITests;
+			sourceTree = "<group>";
+		};
+		DDD729BC268DE78200D8BB8A /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				DDD729BE268DE7D000D8BB8A /* AAPLEAGLLayer.h */,
+				DDD729C0268DE7D800D8BB8A /* AAPLEAGLLayer.m */,
+				DDD729BF268DE7D700D8BB8A /* Codeh264-Bridging-Header.h */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		DDD729BD268DE79B00D8BB8A /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				DDD729C2268DE81000D8BB8A /* CCAVConfig.h */,
+				DDD729C3268DE81100D8BB8A /* CCAVConfig.m */,
+				DDD729C5268DE81A00D8BB8A /* CCVideoEncoder.h */,
+				DDD729C6268DE82100D8BB8A /* CCVideoEncoder.m */,
+				DDD729C8268DE82600D8BB8A /* CCVideoDecoder.h */,
+				DDD729C9268DE82D00D8BB8A /* CCVideoDecoder.m */,
+			);
+			path = Encode;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDD72988268DE66000D8BB8A /* Codeh264 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD729B3268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264" */;
+			buildPhases = (
+				DDD72985268DE66000D8BB8A /* Sources */,
+				DDD72986268DE66000D8BB8A /* Frameworks */,
+				DDD72987268DE66000D8BB8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Codeh264;
+			productName = Codeh264;
+			productReference = DDD72989268DE66000D8BB8A /* Codeh264.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDD7299E268DE66300D8BB8A /* Codeh264Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD729B6268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264Tests" */;
+			buildPhases = (
+				DDD7299B268DE66300D8BB8A /* Sources */,
+				DDD7299C268DE66300D8BB8A /* Frameworks */,
+				DDD7299D268DE66300D8BB8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDD729A1268DE66300D8BB8A /* PBXTargetDependency */,
+			);
+			name = Codeh264Tests;
+			productName = Codeh264Tests;
+			productReference = DDD7299F268DE66300D8BB8A /* Codeh264Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDD729A9268DE66300D8BB8A /* Codeh264UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDD729B9268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264UITests" */;
+			buildPhases = (
+				DDD729A6268DE66300D8BB8A /* Sources */,
+				DDD729A7268DE66300D8BB8A /* Frameworks */,
+				DDD729A8268DE66300D8BB8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDD729AC268DE66300D8BB8A /* PBXTargetDependency */,
+			);
+			name = Codeh264UITests;
+			productName = Codeh264UITests;
+			productReference = DDD729AA268DE66300D8BB8A /* Codeh264UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDD72981268DE66000D8BB8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					DDD72988268DE66000D8BB8A = {
+						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
+					};
+					DDD7299E268DE66300D8BB8A = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = DDD72988268DE66000D8BB8A;
+					};
+					DDD729A9268DE66300D8BB8A = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = DDD72988268DE66000D8BB8A;
+					};
+				};
+			};
+			buildConfigurationList = DDD72984268DE66000D8BB8A /* Build configuration list for PBXProject "Codeh264" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDD72980268DE66000D8BB8A;
+			productRefGroup = DDD7298A268DE66000D8BB8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDD72988268DE66000D8BB8A /* Codeh264 */,
+				DDD7299E268DE66300D8BB8A /* Codeh264Tests */,
+				DDD729A9268DE66300D8BB8A /* Codeh264UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDD72987268DE66000D8BB8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD72999268DE66200D8BB8A /* LaunchScreen.storyboard in Resources */,
+				DDD72996268DE66200D8BB8A /* Assets.xcassets in Resources */,
+				DDD72994268DE66000D8BB8A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD7299D268DE66300D8BB8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD729A8268DE66300D8BB8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDD72985268DE66000D8BB8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD72991268DE66000D8BB8A /* ViewController.swift in Sources */,
+				DDD7298D268DE66000D8BB8A /* AppDelegate.swift in Sources */,
+				DDD729D0268EB84700D8BB8A /* DQVideoDecode.swift in Sources */,
+				DDD729C7268DE82100D8BB8A /* CCVideoEncoder.m in Sources */,
+				DDD729C1268DE7D800D8BB8A /* AAPLEAGLLayer.m in Sources */,
+				DDD729CA268DE82D00D8BB8A /* CCVideoDecoder.m in Sources */,
+				DDD729C4268DE81100D8BB8A /* CCAVConfig.m in Sources */,
+				DDD729CE268DF0D100D8BB8A /* DQVideoEncoder.swift in Sources */,
+				DDD729D4268F21B600D8BB8A /* VideoViewController.swift in Sources */,
+				DDD7298F268DE66000D8BB8A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD7299B268DE66300D8BB8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD729A4268DE66300D8BB8A /* Codeh264Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDD729A6268DE66300D8BB8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD729AF268DE66300D8BB8A /* Codeh264UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDD729A1268DE66300D8BB8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDD72988268DE66000D8BB8A /* Codeh264 */;
+			targetProxy = DDD729A0268DE66300D8BB8A /* PBXContainerItemProxy */;
+		};
+		DDD729AC268DE66300D8BB8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDD72988268DE66000D8BB8A /* Codeh264 */;
+			targetProxy = DDD729AB268DE66300D8BB8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDD72992268DE66000D8BB8A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDD72993268DE66000D8BB8A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DDD72997268DE66200D8BB8A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDD72998268DE66200D8BB8A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDD729B1268DE66300D8BB8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDD729B2268DE66300D8BB8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDD729B4268DE66300D8BB8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhongye.ZYFinancial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Codeh264/Player/Codeh264-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDD729B5268DE66300D8BB8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhongye.ZYFinancial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Codeh264/Player/Codeh264-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDD729B7268DE66300D8BB8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cn.uidemo.Codeh264Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Codeh264.app/Codeh264";
+			};
+			name = Debug;
+		};
+		DDD729B8268DE66300D8BB8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cn.uidemo.Codeh264Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Codeh264.app/Codeh264";
+			};
+			name = Release;
+		};
+		DDD729BA268DE66300D8BB8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cn.uidemo.Codeh264UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Codeh264;
+			};
+			name = Debug;
+		};
+		DDD729BB268DE66300D8BB8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63NH72CDZ9;
+				INFOPLIST_FILE = Codeh264UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cn.uidemo.Codeh264UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Codeh264;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDD72984268DE66000D8BB8A /* Build configuration list for PBXProject "Codeh264" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD729B1268DE66300D8BB8A /* Debug */,
+				DDD729B2268DE66300D8BB8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD729B3268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD729B4268DE66300D8BB8A /* Debug */,
+				DDD729B5268DE66300D8BB8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD729B6268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD729B7268DE66300D8BB8A /* Debug */,
+				DDD729B8268DE66300D8BB8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDD729B9268DE66300D8BB8A /* Build configuration list for PBXNativeTarget "Codeh264UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDD729BA268DE66300D8BB8A /* Debug */,
+				DDD729BB268DE66300D8BB8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDD72981268DE66000D8BB8A /* Project object */;
+}
