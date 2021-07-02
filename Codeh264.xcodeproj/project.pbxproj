@@ -19,9 +19,9 @@
 		DDD729C4268DE81100D8BB8A /* CCAVConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C3268DE81100D8BB8A /* CCAVConfig.m */; };
 		DDD729C7268DE82100D8BB8A /* CCVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C6268DE82100D8BB8A /* CCVideoEncoder.m */; };
 		DDD729CA268DE82D00D8BB8A /* CCVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD729C9268DE82D00D8BB8A /* CCVideoDecoder.m */; };
-		DDD729CE268DF0D100D8BB8A /* DQVideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */; };
-		DDD729D0268EB84700D8BB8A /* DQVideoDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */; };
-		DDD729D4268F21B600D8BB8A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729D3268F21B600D8BB8A /* VideoViewController.swift */; };
+		DDD729E2268F333F00D8BB8A /* DQVideoDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729E1268F333F00D8BB8A /* DQVideoDecode.swift */; };
+		DDD729EA268F355C00D8BB8A /* DQVideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729E9268F355C00D8BB8A /* DQVideoEncoder.swift */; };
+		DDD729EE268F371600D8BB8A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD729ED268F371600D8BB8A /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +65,9 @@
 		DDD729C6268DE82100D8BB8A /* CCVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoEncoder.m; sourceTree = "<group>"; };
 		DDD729C8268DE82600D8BB8A /* CCVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCVideoDecoder.h; sourceTree = "<group>"; };
 		DDD729C9268DE82D00D8BB8A /* CCVideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCVideoDecoder.m; sourceTree = "<group>"; };
-		DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQVideoEncoder.swift; sourceTree = "<group>"; };
-		DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQVideoDecode.swift; sourceTree = "<group>"; };
-		DDD729D3268F21B600D8BB8A /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		DDD729E1268F333F00D8BB8A /* DQVideoDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DQVideoDecode.swift; sourceTree = "<group>"; };
+		DDD729E9268F355C00D8BB8A /* DQVideoEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DQVideoEncoder.swift; sourceTree = "<group>"; };
+		DDD729ED268F371600D8BB8A /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +123,9 @@
 				DDD7298C268DE66000D8BB8A /* AppDelegate.swift */,
 				DDD7298E268DE66000D8BB8A /* SceneDelegate.swift */,
 				DDD72990268DE66000D8BB8A /* ViewController.swift */,
-				DDD729D3268F21B600D8BB8A /* VideoViewController.swift */,
-				DDD729CD268DF0D100D8BB8A /* DQVideoEncoder.swift */,
-				DDD729CF268EB84700D8BB8A /* DQVideoDecode.swift */,
+				DDD729ED268F371600D8BB8A /* VideoViewController.swift */,
+				DDD729E9268F355C00D8BB8A /* DQVideoEncoder.swift */,
+				DDD729E1268F333F00D8BB8A /* DQVideoDecode.swift */,
 				DDD72992268DE66000D8BB8A /* Main.storyboard */,
 				DDD72995268DE66200D8BB8A /* Assets.xcassets */,
 				DDD72997268DE66200D8BB8A /* LaunchScreen.storyboard */,
@@ -308,13 +308,13 @@
 			files = (
 				DDD72991268DE66000D8BB8A /* ViewController.swift in Sources */,
 				DDD7298D268DE66000D8BB8A /* AppDelegate.swift in Sources */,
-				DDD729D0268EB84700D8BB8A /* DQVideoDecode.swift in Sources */,
+				DDD729E2268F333F00D8BB8A /* DQVideoDecode.swift in Sources */,
 				DDD729C7268DE82100D8BB8A /* CCVideoEncoder.m in Sources */,
 				DDD729C1268DE7D800D8BB8A /* AAPLEAGLLayer.m in Sources */,
+				DDD729EA268F355C00D8BB8A /* DQVideoEncoder.swift in Sources */,
 				DDD729CA268DE82D00D8BB8A /* CCVideoDecoder.m in Sources */,
 				DDD729C4268DE81100D8BB8A /* CCAVConfig.m in Sources */,
-				DDD729CE268DF0D100D8BB8A /* DQVideoEncoder.swift in Sources */,
-				DDD729D4268F21B600D8BB8A /* VideoViewController.swift in Sources */,
+				DDD729EE268F371600D8BB8A /* VideoViewController.swift in Sources */,
 				DDD7298F268DE66000D8BB8A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

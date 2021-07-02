@@ -1,8 +1,9 @@
 //
 //  VideoViewController.swift
-//  Codeh264
+//  VideoH264
 //
-//  Created by 阿永 on 2021/7/1.
+//  Created by dzq_mac on 2020/8/1.
+//  Copyright © 2020 dzq_mac. All rights reserved.
 //
 
 import UIKit
@@ -12,39 +13,40 @@ import VideoToolbox
 
 
 class VideoViewController: UIViewController {
-
+    //按钮
+    var captureButton:UIButton!
     var recodButton:UIButton!
     
-    // 录屏
-    var session: AVCaptureSession = AVCaptureSession()
-    var queue = DispatchQueue(label: "queue")
+    var session : AVCaptureSession = AVCaptureSession()
+    var queue = DispatchQueue(label: "quque")
     var input: AVCaptureDeviceInput?
-    lazy var previewLayer = AVCaptureVideoPreviewLayer(session: session)
-    
-    //播放
-    var recordOutput = AVCaptureMovieFileOutput()
-    var captureView: UIView!
+    lazy var previewLayer  = AVCaptureVideoPreviewLayer(session: self.session)
+    lazy var recordOutput = AVCaptureMovieFileOutput()
+    var captureView : UIView!
     let output = AVCaptureVideoDataOutput()
-
-    var focusBox: UIView!
-    var exposureBox: UIView!
+    var focusBox:UIView!
+    var exposureBox : UIView!
     
-    var encoder: DQVideoEncoder!
-    var decoder: DQVideoDecode!
-    var player: AAPLEAGLLayer?
+    var encoder : DQVideoEncoder!
+    var decoder:DQVideoDecode!
+    var player : AAPLEAGLLayer?
     
-    var fileHandle: FileHandle?
-    
+    var fileHandle : FileHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "拍照"
+      
         view.backgroundColor = .white
+        
         captureView = UIView(frame: CGRect(x: 5, y: 200, width: view.frame.size.width/2 - 10, height: 300))
         captureView.backgroundColor = .orange
         view.addSubview(captureView)
         previewLayer.frame = captureView.bounds
-
+        previewLayer.isHidden = true
+        previewLayer.videoGravity = .resizeAspectFill
+        captureView.layer.addSublayer(previewLayer)
+        
         player = AAPLEAGLLayer(frame: CGRect(x: view.frame.size.width/2 + 5, y: 200, width: view.frame.size.width/2 - 10, height: 300))
         view.layer.addSublayer(player!)
         
@@ -68,17 +70,101 @@ class VideoViewController: UIViewController {
         exposureBox.isHidden = true
         self.view.addSubview(focusBox)
         self.view.addSubview(exposureBox)
-        isAllow()
+        
         startCapture()
     }
     
-    func isAllow() {
-        let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
-        if authStatus == .restricted || authStatus == .denied {
-            print("应用相机权限受限,请在设置中启用")
+    func boxView(color:UIColor) -> UIView{
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 5
+        view.layer.borderColor = color.cgColor
+        return view
+    }
+    func boxAnimation(boxView:UIView,point:CGPoint) {
+        boxView.center = point
+        boxView.isHidden = false
+        UIView.animate(withDuration: 0.15,delay: 0, options: .curveEaseInOut, animations: {
+            
+            boxView.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1.0)
+        }) { (complet) in
+            let time = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                
+                boxView.isHidden = true
+                boxView.layer.transform = CATransform3DIdentity
+            }
         }
     }
+    @objc func tapAction(tap:UITapGestureRecognizer){
+        let point = tap.location(in: view)
+        setFocus(point: point)
+        boxAnimation(boxView: focusBox, point: point)
+    }
+    @objc func doubleTap(tap:UITapGestureRecognizer){
+        let point = tap.location(in: view)
+        setExposure(point: point)
+        boxAnimation(boxView: exposureBox, point: point)
+    }
     
+    func startCapture(){
+        
+        guard let device = getCamera(postion: .back) else{
+            return
+        }
+        guard let input = try? AVCaptureDeviceInput(device: device) else{
+            return
+        }
+        self.input = input
+        if session.canAddInput(input) {
+            session.addInput(input)
+        }
+        previewLayer.isHidden = false
+        //视图重力
+        previewLayer.videoGravity = .resizeAspect
+        session.startRunning()
+        
+        //编码
+        encoder = DQVideoEncoder(width: 480, height: 640)
+        encoder.videoEncodeCallback {[weak self] (data) in
+//            self?.writeTofile(data: data)
+            self?.decoder.decode(data: data)
+//            self?.ccDecode?.decodeNaluData(data)
+        }
+        encoder.videoEncodeCallbackSpsAndPps {[weak self] (sps, pps) in
+            //存入文件
+//            self?.writeTofile(data: sps)
+//            self?.writeTofile(data: pps)
+            //直接解码
+            self?.decoder.decode(data: sps)
+            self?.decoder.decode(data: pps)
+//            self?.ccDecode?.decodeNaluData(sps)
+//            self?.ccDecode?.decodeNaluData(pps)
+        }
+        //解码
+        decoder = DQVideoDecode(width: 480, height: 640)
+        decoder.setVideoDecodeCallBack { (image) in
+            self.player?.pixelBuffer = image
+            
+        }
+        
+        //OC版本使用
+//        let con = CCVideoConfig()
+//        con.width = 480
+//        con.height = 640
+//        con.bitrate = 480 * 640 * 5
+//        ccencode = CCVideoEncoder(config: con)
+//        ccencode?.delegate = self
+//        ccDecode = CCVideoDecoder(config: con)
+//        ccDecode?.delegate = self
+    
+    }
+    
+    @available(iOS 13.4, *)
+    func writeTofile(data: Data){
+        try? self.fileHandle?.seekToEnd()
+        self.fileHandle?.write(data)
+    }
     @objc func recordAction(btn:UIButton){
         btn.isSelected = !btn.isSelected
         if !session.isRunning{
@@ -96,10 +182,7 @@ class VideoViewController: UIViewController {
             //这里设置格式为BGRA，而不用YUV的颜色空间，避免使用Shader转换
             //注意:这里必须和后面CVMetalTextureCacheCreateTextureFromImage 保存图像像素存储格式保持一致.否则视频会出现异常现象.
             output.videoSettings = [String(kCVPixelBufferPixelFormatTypeKey)  :NSNumber(value: kCVPixelFormatType_32BGRA) ]
-            guard let connection: AVCaptureConnection = output.connection(with: .video) else {
-                return
-            }
-            
+            let connection: AVCaptureConnection = output.connection(with: .video)!
             connection.videoOrientation = .portrait
             
             if fileHandle == nil{
@@ -119,71 +202,20 @@ class VideoViewController: UIViewController {
             session.removeOutput(output)
             btn.setTitle("start record", for: .normal)
         }
-    }
-    
-    @objc func tapAction(tap:UITapGestureRecognizer){
-        let point = tap.location(in: view)
-        setFocus(point: point)
-        boxAnimation(boxView: focusBox, point: point)
-    }
-    
-    @objc func doubleTap(tap:UITapGestureRecognizer){
-        let point = tap.location(in: view)
-        setExposure(point: point)
-        boxAnimation(boxView: exposureBox, point: point)
-    }
-    
-    func startCapture() {
-        guard let device = getCamera(postion: .back) else {
-            return
-        }
-        guard let input = try? AVCaptureDeviceInput(device: device) else {
-            return
-        }
         
-        self.input = input
-        if session.canAddInput(input) {
-            session.addInput(input)
-        }
-        
-        previewLayer.isHidden = false
-        previewLayer.videoGravity = .resizeAspect
-        session.startRunning()
-        
-        //编码
-        encoder = DQVideoEncoder(width: 480, height: 640)
-        encoder.videoEncodeCallback {[weak self] data in
-            self?.decoder.decode(data: data)
-            //存入文件...
-        }
-        encoder.videoEncodeCallbackSpsAndPps { [weak self] sps, pps in
-            self?.decoder.decode(data: sps)
-            self?.decoder.decode(data: pps)
-            //存入文件...
-        }
-        
-        //解码
-        decoder = DQVideoDecode(width: 480, height: 640)
-        decoder.setVideoDecodeCallBack { [weak self] image in
-            self?.player?.pixelBuffer = image
-        }
-        
-    }
-    
-    func writeTofile(data: Data){
-        if #available(iOS 13.4, *) {
-            try? self.fileHandle?.seekToEnd()
-        } else {
-            // Fallback on earlier versions
-        }
-        self.fileHandle?.write(data)
     }
     
     //获取相机设备
     func getCamera(postion: AVCaptureDevice.Position) -> AVCaptureDevice? {
         var devices = [AVCaptureDevice]()
-        let discoverSession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: .video, position: .unspecified)
-        devices = discoverSession.devices
+        
+        if #available(iOS 10.0, *) {
+            let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+            devices = discoverySession.devices
+        } else {
+            devices = AVCaptureDevice.devices(for: AVMediaType.video)
+        }
+        
         for device in devices {
             if device.position == postion {
                 return device
@@ -226,7 +258,6 @@ class VideoViewController: UIViewController {
              }
          }
      }
-    
     //MARK: -切换摄像头
     func swapFrontAndBackCameras() {
         if let input = input {
@@ -257,7 +288,7 @@ class VideoViewController: UIViewController {
             }
         }
     }
-    
+ 
     //MARK: -闪光灯
     func setFlash(mode : AVCaptureDevice.FlashMode){
         //设备是否支持闪光灯
@@ -276,7 +307,6 @@ class VideoViewController: UIViewController {
         }
         
     }
-    
     //MARK: - 手电筒
     func setTorch(mode:AVCaptureDevice.TorchMode) {
         //设备是否有手电筒
@@ -296,37 +326,42 @@ class VideoViewController: UIViewController {
     
     //MARK: - 聚焦
     func setFocus(point:CGPoint? = nil ) {
-        guard let device = input?.device else {
+        guard let device = self.input?.device else {
             return
         }
-        if let po = point {
+        
+        if let po =  point {
             // 触摸屏幕的坐标点需要转换成0-1，设置聚焦点
             let cameraPoint = CGPoint(x: po.x/previewLayer.bounds.size.width, y: po.y/previewLayer.bounds.size.height)
-            if device.isFocusModeSupported(.continuousAutoFocus), device.isFocusPointOfInterestSupported {
+            if device.isFocusModeSupported(.continuousAutoFocus) && device.isFocusPointOfInterestSupported {
                 do {
                     try device.lockForConfiguration()
+                    /*****必须先设定聚焦位置，在设定聚焦方式******/
                     device.focusPointOfInterest = cameraPoint
+                    device.focusMode = .continuousAutoFocus
+                    
                     device.unlockForConfiguration()
-                } catch let err {
-                    print(err)
+                } catch let error {
+                    print(error.localizedDescription)
                 }
             }
-        } else {
+        }else{
             let mode = AVCaptureDevice.FocusMode.autoFocus
             if device.isFocusModeSupported(mode) {
                 do {
                     try device.lockForConfiguration()
                     device.focusMode = mode
                     device.unlockForConfiguration()
-                } catch let err {
-                    print(err)
+                } catch let error {
+                    print(error.localizedDescription)
                 }
             }
         }
+        
     }
-
+    
     //MARK: - 曝光
-    func setExposure(point:CGPoint? = nil) {
+    func setExposure(point:CGPoint? = nil)  {
         guard let device = self.input?.device else {
             return
         }
@@ -356,44 +391,39 @@ class VideoViewController: UIViewController {
         }
     }
     
-    func boxAnimation(boxView:UIView,point:CGPoint) {
-        boxView.center = point
-        boxView.isHidden = false
-        UIView.animate(withDuration: 0.15,delay: 0, options: .curveEaseInOut, animations: {
-            
-            boxView.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1.0)
-        }) { (complet) in
-            let time = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-            DispatchQueue.main.asyncAfter(deadline: time) {
-                
-                boxView.isHidden = true
-                boxView.layer.transform = CATransform3DIdentity
-            }
-        }
-    }
-    
-    func boxView(color:UIColor) -> UIView{
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
-        view.backgroundColor = .clear
-        view.layer.borderWidth = 5
-        view.layer.borderColor = color.cgColor
-        return view
-    }
-    
-    
 }
 
-extension VideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+//MARK: -AVCaptureVideoDataOutputSampleBufferDelegate
+extension VideoViewController : AVCaptureVideoDataOutputSampleBufferDelegate {
+    //采集结果
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         encoder.encodeVideo(sampleBuffer: sampleBuffer)
     }
+    
 }
-
-extension VideoViewController: AVCaptureFileOutputRecordingDelegate {
+//MARK: -AVCaptureFileOutputRecordingDelegate
+extension VideoViewController : AVCaptureFileOutputRecordingDelegate {
+    
+    //录制完成
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         
     }
+        
+}
+//Mark - OC版代理回掉
+extension VideoViewController :CCVideoDecoderDelegate,CCVideoEncoderDelegate{
+    func videoDecodeCallback(_ imageBuffer: CVPixelBuffer!) {
+        player?.pixelBuffer = imageBuffer
+    }
     
+    func videoEncodeCallback(_ h264Data: Data!) {
+        self.decoder.decode(data: h264Data)
+    }
     
+    func videoEncodeCallbacksps(_ sps: Data!, pps: Data!) {
+        self.decoder.decode(data: sps)
+        self.decoder.decode(data: pps)
+    }
+
 }
 

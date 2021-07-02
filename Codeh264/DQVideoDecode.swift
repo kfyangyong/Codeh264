@@ -42,12 +42,12 @@ class DQVideoDecode: NSObject {
         }
         
         var sps: [UInt8] = []
-        spsData?.suffix(from: 4).forEach({ value in
+        [UInt8](spsData!).suffix(from: 4).forEach({ value in
             sps.append(value)
         })
         
         var pps: [UInt8] = []
-        ppsData?.suffix(from: 4).forEach({ value in
+        [UInt8](ppsData!).suffix(from: 4).forEach({ value in
             pps.append(value)
         })
         let spsAndPps = [sps.withUnsafeBufferPointer({ $0 }).baseAddress!,
@@ -111,10 +111,11 @@ class DQVideoDecode: NSObject {
          @param    outputCallback 使用已解压缩的帧调用的回调
          @param    decompressionSessionOut 指向一个变量以接收新的解压会话
          */
-        let state = VTDecompressionSessionCreate(allocator: kCFAllocatorDefault, formatDescription: description as! CMVideoFormatDescription, decoderSpecification: nil, imageBufferAttributes: imageBufferAttributes as CFDictionary, outputCallback: &callBackRecord, decompressionSessionOut: &decompressionSession)
+        let state = VTDecompressionSessionCreate(allocator: kCFAllocatorDefault, formatDescription: decodeDesc!, decoderSpecification: nil, imageBufferAttributes: imageBufferAttributes as CFDictionary, outputCallback: &callBackRecord, decompressionSessionOut: &decompressionSession)
         if state != 0 {
             print("创建decodeSession失败")
         }
+        
         VTSessionSetProperty(self.decompressionSession!, key: kVTCompressionPropertyKey_RealTime, value: kCFBooleanTrue)
         return true
         

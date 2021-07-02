@@ -22,8 +22,8 @@ class DQVideoEncoder: NSObject {
     
     var encodeSession: VTCompressionSession!
     var encodeCallBack: VTCompressionOutputCallback?
-    var videoEncodeCallback: ((Data)->())?
-    func videoEncodeCallback(block: @escaping (Data)->()) {
+    var videoEncodeCallback: ((Data)->Void)?
+    func videoEncodeCallback(block: @escaping (Data)->Void) {
         videoEncodeCallback = block
     }
     
@@ -38,7 +38,8 @@ class DQVideoEncoder: NSObject {
         self.bitRate = bitRate != nil ? bitRate! : 480 * 640 * 3 * 4
         self.fps = fps != nil ? fps! : 10
         super.init()
-        
+        setCallBack()
+        initVideoToolBox()
     }
     
     func setCallBack() {
